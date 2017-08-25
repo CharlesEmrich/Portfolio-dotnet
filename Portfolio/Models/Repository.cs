@@ -21,7 +21,7 @@ namespace Portfolio.Models
         {
             var client = new RestClient("https://api.github.com/");
 
-            RestRequest request = new RestRequest("users/CharlesEmrich/repos", Method.GET);
+            RestRequest request = new RestRequest("search/repositories?q=user:" + EnvironmentVariables.UserAgent + "&sort=stars", Method.GET);
             request.AddHeader("User-Agent", EnvironmentVariables.UserAgent);
             request.AddHeader("token", EnvironmentVariables.AuthToken);
             request.AddHeader("Accept", "application/json");
@@ -32,8 +32,8 @@ namespace Portfolio.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
                 Debug.WriteLine(response.Content);
             }).Wait();
-            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
-            var repoList = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse.ToString());
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            var repoList = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse["items"].ToString());
             return repoList;
         }
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
