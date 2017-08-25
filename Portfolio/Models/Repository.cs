@@ -19,11 +19,12 @@ namespace Portfolio.Models
 
         public static List<Repository> GetRepos()
         {
-            var client = new RestClient("https://api.github.com/?access_token=" + EnvironmentVariables.AuthToken);
+            var client = new RestClient("https://api.github.com/");
 
             RestRequest request = new RestRequest("users/CharlesEmrich/repos", Method.GET);
-
+            request.AddHeader("token", EnvironmentVariables.AuthToken);
             request.AddHeader("Accept", "application/json");
+
             var response = new RestResponse();
             Task.Run(async () =>
             {
