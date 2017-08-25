@@ -22,6 +22,7 @@ namespace Portfolio.Models
             var client = new RestClient("https://api.github.com/");
 
             RestRequest request = new RestRequest("users/CharlesEmrich/repos", Method.GET);
+            request.AddHeader("User-Agent", EnvironmentVariables.UserAgent);
             request.AddHeader("token", EnvironmentVariables.AuthToken);
             request.AddHeader("Accept", "application/json");
 
