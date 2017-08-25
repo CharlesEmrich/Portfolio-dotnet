@@ -16,6 +16,7 @@ namespace Portfolio.Models
         public string html_url { get; set; }
         public int forks { get; set; }
         public string description { get; set; }
+        public int stargazer_count { get; set; }
 
         public static List<Repository> GetRepos()
         {

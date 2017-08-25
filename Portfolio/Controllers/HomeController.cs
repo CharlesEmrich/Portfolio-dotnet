@@ -11,8 +11,8 @@ namespace Portfolio.Controllers
     {
         public IActionResult Index()
         {
-            Repository.GetRepos();
-            return View();
+            var TopRepos = Repository.GetRepos().Take(5);
+            return View(TopRepos);
         }
 
         public IActionResult About()
