@@ -32,8 +32,8 @@ namespace Portfolio.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
                 Debug.WriteLine(response.Content);
             }).Wait();
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var repoList = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse["items"].ToString());
+            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
+            var repoList = JsonConvert.DeserializeObject<List<Repository>>(jsonResponse.ToString());
             return repoList;
         }
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
