@@ -2,18 +2,62 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    <ol>
-        @foreach (var repository in Model)
-        {
-            <li>
-                <ul>
-                    <li>@repository.name </li>
-                    <li>@repository.html_url</li>
-                    <li>@repository.description</li>
-                    <li>@repository.stargazer_count</li>
-                </ul>
-            </li>
-        }
-    </ol>
-</div>
+
+
+<!-- As a convention, I favor not indenting <head> and <body> in spite of them being children of <html>. Nearly no one needs to keep that relationship in mind, and saving an indent here makes everything a little easier to read. -->
+<body class="bg-sea-serpent">
+    <div class="container">
+        <div class="jumbotron bg-dark-imperial-blue c-platinum">
+            <h1 id="folio" class="text-right">Folio:</h1>
+            <h2 id="my-name" class="text-right">Charles Emrich</h2>
+            <img id="portrait" src="img/gravatar.jpg" alt="An Image of Charles' Gravatar">
+        </div>
+        <div class="row equal">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Skills and Fluencies</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ol>
+                            <li><strong>HTML</strong></li>
+                            <li>
+                                <strong>Javascript</strong>
+                                <ul>
+                                    <li><em>Node.js</em></li>
+                                    <li><em>jQuery</em></li>
+                                </ul>
+                            </li>
+                            <li><strong>C# <span class="coming-soon">(Coming Soon!)</span></strong></li>
+                            <li><strong>.NET <span class="coming-soon">(Coming Soon!)</span></strong></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                         @Html.ActionLink("About Me", "About")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 well bg-dark-imperial-blue c-platinum">
+                <h3 id="completed-projects">Completed Projects</h3>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <table>
+                        @foreach (var repository in Model)
+                        {
+                            <td><img src="img/code2-400x400.png" alt="Image of Angle Brackets"></td>
+                            <td class="project-name"><a href="@repository.html_url">@repository.name</a></td>
+                            <td class="project-desc">@repository.description</td>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

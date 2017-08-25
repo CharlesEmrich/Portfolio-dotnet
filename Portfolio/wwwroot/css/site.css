@@ -1,38 +1,168 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/*Image Formatting*/
+#portrait {
+  width: 100%;
+  max-width: 188px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  border-radius: 5px;
+  float: none;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"]
-{
-    width: 100%;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none
+@media (max-width: 767px) {
+  #portrait {
+    width: 124.667px;
   }
+}
+
+td img {
+  width: 20px;
+  /*padding: 5px 10px;*/
+}
+
+/*Layout*/
+
+.jumbotron {
+  position: relative;
+  margin-top: 20PX;
+}
+
+/*The following rule comes from http://stackoverflow.com/questions/20503064/twitter-bootstrap-3-panels-of-equal-height-in-a-fluid-row*/
+@media (min-width: 992px) {
+   .equal{
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+}
+
+.panel {
+  width: 100%;
+  height: 95%;
+}
+
+.panel, .well, #portrait {
+  border: 8px solid rgba(205, 237, 253, .4);
+}
+
+/*Table Layout*/
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 4px;
+}
+
+.project-name {
+  border-right: 1px solid #ddd;
+  width: 120px;
+}
+
+/*Text/Font Styling*/
+#completed-projects {
+  text-align: center;
+  padding: 4px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.coming-soon {
+  font-weight: normal;
+}
+
+.project-name {
+  /*Currently unused, in favor of styling <a>, but an expanded version of the site would need to use both*/
+}
+
+a {
+  color: rgba(254, 101, 101, 1);
+  font-weight: bold;
+}
+
+.project-desc {
+  font-variant: small-caps;
+}
+
+.language {
+  font-weight: 700;
+}
+
+.important-project {
+  /*Make a rule to highlight particularly good projects*/
+}
+
+.panel .panel-heading {
+  font-weight: 1000;
+  font-family: sans-serif;
+}
+
+#folio {
+  border-bottom: 3px solid rgba(255,255,255,.5);
+  font-weight: 700;
+  font-stretch: ultra-expanded;
+}
+
+#my-name {
+  /*text-align: left;
+  padding-left: 17%;*/
+  font-family: monospace;
+}
+
+/*Custom Colors*/
+.c-sea-serpent {
+  color: rgba(79, 182, 211, 1);
+}
+
+.c-steel-teal {
+  color: rgba(95, 125, 137, 1);
+}
+
+.c-dark-imperial-blue {
+  color: rgba(26, 66, 101, 1);
+}
+
+.c-platinum {
+  color: rgba(226, 243, 225, 1);
+}
+
+.c-cordovan {
+  color: rgba(136, 62, 77, 1);
+}
+
+.c-angle-brack {
+  color: rgba(254, 101, 101, 1);
+}
+
+.bg-sea-serpent {
+  background-color: rgba(79, 182, 211, 1);
+}
+
+.bg-steel-teal {
+  background-color: rgba(95, 125, 137, 1);
+}
+
+.bg-dark-imperial-blue {
+  background-color: rgba(26, 66, 101, .5);
+}
+
+.bg-platinum {
+  background-color: rgba(226, 243, 225, 1);
+}
+
+.bg-cordovan {
+  background-color: rgba(136, 62, 77, 1);
+}
+
+.bg-angle-brack {
+  background-color: rgba(254, 101, 101, 1);
+}
+
+.panel {
+  background-color: rgba(226, 243, 225, 1);
+}
+
+.panel .panel-heading {
+  background-color: rgba(95, 125, 137, 1);
+  /*color: rgba(129, 209, 232, 1);*/
+  color: rgba(226, 243, 225, 1);
 }
